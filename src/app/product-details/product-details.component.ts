@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { products } from "./../products";
 import { CartService } from '../cart.service';
+import { WishlistService } from '../wishlist.service';
 
 @Component({
     selector: 'app-product-details',
@@ -11,11 +12,15 @@ import { CartService } from '../cart.service';
 
 export class ProductDetailsComponent implements OnInit {
     product;
+    wishlist = [];
 
     constructor(
         private route: ActivatedRoute,
-        private cartService : CartService
-    ) { }
+        private cartService: CartService,
+        private wishlistService: WishlistService
+    ) {
+        this.wishlist = this.wishlistService.getWish()
+    }
 
     ngOnInit() {
         this.route.paramMap.subscribe(params => {
@@ -25,5 +30,18 @@ export class ProductDetailsComponent implements OnInit {
     addToCart(product) {
         window.alert('Your Product has been added!');
         this.cartService.addToCart(product);
+    }
+
+    addToWish(product) {
+        window.alert('Your Product has been added!');
+        this.wishlistService.addToWish(product);
+    }
+
+    removeWish(productId) {
+        this.wishlistService.removeWish(productId);
+    }
+
+    Include(product) {
+        return this.wishlist.includes(product);
     }
 }

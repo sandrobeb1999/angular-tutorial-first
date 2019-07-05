@@ -7,4 +7,10 @@
     <button (click)="addToCart(product)">
         Add to Cart
     </button>
+    <button *ngIf="!Include(product)" (click)="addToWish(product)">
+        Add to Wishlist
+    </button>
+    <button *ngIf="Include(product)" (click)="removeWish(product)">
+        Remove from wishlist
+    </button>
 </div>

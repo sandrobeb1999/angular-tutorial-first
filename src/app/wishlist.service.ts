@@ -4,24 +4,24 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
 })
 
-export class CartService {
-    constructor() {}
-    wishlist= [];
-  
+export class WishlistService {
+    constructor() { }
+    wishlist = [];
+
     addToWish(product) {
-        this.wishlist.push(product);
+            this.wishlist.push(product);
     }
 
     removeWish(productId) {
         this.wishlist.splice(productId, 1);
-      }
+    }
 
     getWish() {
         return this.wishlist;
     }
 
     clearWish() {
-        this.wishlist= [];
+        this.wishlist = [];
         return this.wishlist;
     }
 
