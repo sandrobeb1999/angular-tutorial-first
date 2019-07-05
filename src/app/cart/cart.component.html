@@ -1,6 +1,13 @@
 <h3>Cart</h3>
 
-<div class="cart-item" *ngFor="let item of items">
+<div class="cart-item" *ngFor="let item of items;">
     <span>{{item.name}}</span>
-    <span>{{item.price}}</span>
+    <span>{{item.price | currency}}</span>
+    <button (click)="removeItem(productId)">
+        Remove
+    </button>
 </div>
+
+<button *ngIf="items && items.length > 0" (click)="clearCart()">
+    Clear
+</button>

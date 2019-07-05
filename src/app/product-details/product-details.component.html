@@ -2,7 +2,7 @@
 
 <div *ngIf="product">
     <h3>{{product.name}}</h3>
-    <h3>{{product.price}}</h3>
+    <h3>{{product.price | currency}}</h3>
     <p *ngIf="product.description">{{product.description}}</p>
     <button (click)="addToCart(product)">
         Add to Cart
