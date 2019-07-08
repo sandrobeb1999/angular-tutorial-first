@@ -50,6 +50,16 @@
 
 <div>
     <h3>Errors</h3>
+    {{address.errors || json}}
+
+    <div *ngIf="address.invalid && (address.dirty || address.touched)">
+        <div *ngIf="!address.errors.zipStatus">
+            Zip is too long.
+        </div>
+        <div *ngIf="!address.errors.cityStatus">
+                City cant start with a
+            </div>
+    </div>
     <div *ngIf="name.invalid && (name.dirty || name.touch)">
 <div *ngIf="name.errors.required">
     Name is required!
