@@ -1,57 +1,52 @@
 <div class="wrap">
-    <div class="left">
-        <h3>Forms</h3>
-
-        <form [formGroup]="checkedForm" (ngSubmit)="onSubmit(checkedForm.value)">
-            <div>
-                <label for="name">E-mail</label>
-                <input id="email" type="email" formControlName="email">
-            </div>
-            <div>
-                <label for="name">Password</label>
-                <input id="name" type="text" formControlName="password" required>
-            </div>
-            <div>
-                <label for="name">Confirm Password</label>
-                <input id="name" type="text" formControlName="cpassword" required>
-            </div>
-            <div>
-                <label for="name">Nickname</label>
-                <input id="name" type="text" formControlName="nickname" required>
-            </div>
-            <div>
-                <label for="name">Phone Number</label>
-                <input id="name" type="text" formControlName="number" required>
-            </div>
-            <div>
-                <label for="name">Website</label>
-                <input id="name" type="text" formControlName="website" required>
-            </div>
-            <div>
-                <label for="name">I have read the agreement</label>
-                <input id="name" type="checkbox" formControlName="agree" required>
-            </div>
-
-
-            <button class="button" type="submit" *ngIf="checkedForm.status === 'INVALID'">Register</button>
-        </form>
-
-    </div>
-
-    <div class="right">
+    <form [formGroup]="checkedForm" (ngSubmit)="onSubmit(checkedForm.value)">
         <div>
-            <p>E-mail: {{checkedForm.controls.email.value}}</p>
+            <label for="name">E-mail</label>
+            <input id="email" type="email" formControlName="email">
+            <div *ngIf="checkedForm.controls['email'].invalid">Wrong email format</div>
+        </div>
+        <div>
+            <label for="name">Password</label>
+            <input id="password" type="text" formControlName="password" required>
+        </div>
+        <div>
+            <label for="name">Confirm Password</label>
+            <input id="name" type="text" formControlName="cpassword" required>
+            <div *ngIf="checkedForm.errors?.invalid">Password doesn't match</div>
+        </div>
+        <div>
+            <label for="name">Nickname</label>
+            <input id="name" type="text" formControlName="nickname" required>
+        </div>
+        <div>
+            <label for="name">Phone Number</label>
+            <input id="name" type="text" formControlName="number" required>
+        </div>
+        <div>
+            <label for="name">Website</label>
+            <input id="name" type="text" formControlName="website" required>
+            <div *ngIf="website.errors.pattern">
+                Website is Invalid!
+            </div>
+        </div>
+        <div class="agree">
+            <input id="name" type="checkbox" formControlName="agree" required>
+            <label for="name">I have read the agreement</label>
         </div>
 
-        <div>
-            <h3>Errors</h3>
-            <div *ngIf="checkedForm.controls['email'].invalid">Wrong email format</div>
-            <div *ngIf="checkedForm.errors?.invalid">  
-                Password doesn't match
+
+        <button class="button" type="submit" *ngIf="checkedForm.status === 'INVALID'">Register</button>
+    </form>
+    <div>
+
+        <div *ngIf="password.invalid && (password.dirty || password.touch)">
+            <div *ngIf="password.errors.required">
+                Password field is required!
             </div>
             <div *ngIf="password.errors?.pattern">
+                sdf
             </div>
-
+            <div *ngIf="control.errors">aera</div>
             <!-- <div *ngIf="nickname.invalid && (nickname.dirty || nickname.touch)">
         <div *ngIf="nickname.errors.required">
             Nickname is required!
@@ -66,4 +61,3 @@
 </div> -->
 
         </div>
-    </div>

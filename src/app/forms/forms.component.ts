@@ -12,13 +12,13 @@ export class FormsComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) {
     this.checkedForm = formBuilder.group({
-      nickname: ['', [Validators.minLength(2),  Validators.required, this.forbiddenName()]],
+      nickname: ['', [Validators.required]],
       email: ['', [Validators.email, Validators.required]],
-      website: ['',[Validators.required]],
-      password: ['' ,[Validators.required],[Validators.pattern('[a-zA-Z0-9]+$')]],
-      cpassword: ['' ,[Validators.required]],
-      number: ['',[Validators.required]],
-      agree: [false,  [Validators.requiredTrue]]
+      website: ['',[Validators.pattern(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/),Validators.required]],
+      password: ['' ,[Validators.required, Validators.pattern(/^[a-z0-9]*$/i), Validators.minLength(8)]],
+      cpassword: ['' ,[Validators.required, Validators.minLength(8)]],
+      number: ['',[Validators.minLength(13) ,Validators.required]],
+      agree: [false,  [Validators.required]]
     },{validator: this.match})
   }
 
