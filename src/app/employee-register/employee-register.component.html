@@ -1,0 +1,16 @@
+<form [formGroup]="employeeRegister" (ngSubmit)="onSubmit(employeeRegister.value)">
+    <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name" required>
+    </div>
+    <div>
+        <label for="salary">Salary</label>
+        <input id="salary" type="number" formControlName="salary" required>
+    </div>
+    <div>
+        <label for="age">Age</label>
+        <input id="age" type="number" formControlName="age" required>
+    </div>
+
+    <button class="button" type="submit">Register</button>
+</form>

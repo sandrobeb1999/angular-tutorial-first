@@ -19,6 +19,10 @@ import { NewsComponent } from './news/news.component';
 import { ArticleComponent } from './article/article.component';
 import { ErrorComponent } from './error/error.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { AdminComponent } from './admin/admin.component';
+import { GuardComponent } from './guard/guard.component';
+import { EmployeesComponent } from './employees/employees.component';
+import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 
 
 @NgModule({
@@ -36,7 +40,11 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     NewsComponent,
     ArticleComponent,
     ErrorComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    AdminComponent,
+    GuardComponent,
+    EmployeesComponent,
+    EmployeeRegisterComponent
   ],
   imports: [
     HttpClientModule,
@@ -52,7 +60,12 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
       { path: 'dashboard/news', data: { name: 'News' }, component: NewsComponent },
       { path: 'dashboard/news/:articleId', data: { name: 'Article' }, component: ArticleComponent },
       { path: 'error', data: { name: 'Error' }, component: ErrorComponent },
-      { path: '**', redirectTo: 'error' }
+      { path: 'admin', data: { name: 'Admin' }, component: AdminComponent },
+      { path: 'guard', data: { name: 'Guard' }, component: GuardComponent },
+      { path: 'employees', data: { name: 'Employees' }, component: EmployeesComponent },
+      { path: 'employee/register', data: { name: 'Register' }, component: EmployeeRegisterComponent },
+      { path: '**', redirectTo: 'error' },
+
     ]),
     ReactiveFormsModule
   ],
