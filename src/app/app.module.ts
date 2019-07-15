@@ -23,6 +23,8 @@ import { AdminComponent } from './admin/admin.component';
 import { GuardComponent } from './guard/guard.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
+import { MenuComponent } from './menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -44,12 +46,14 @@ import { EmployeeRegisterComponent } from './employee-register/employee-register
     AdminComponent,
     GuardComponent,
     EmployeesComponent,
-    EmployeeRegisterComponent
+    EmployeeRegisterComponent,
+    MenuComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: '', data: { name: 'Home' }, component: ProductListComponent },
       { path: 'products/:productId', data: { name: 'Product' }, component: ProductDetailsComponent },
