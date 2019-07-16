@@ -25,6 +25,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
 import { MenuComponent } from './menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmployeeComponent } from './employee/employee.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     GuardComponent,
     EmployeesComponent,
     EmployeeRegisterComponent,
-    MenuComponent
+    MenuComponent,
+    EmployeeComponent
   ],
   imports: [
     HttpClientModule,
@@ -68,6 +70,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       { path: 'guard', data: { name: 'Guard' }, component: GuardComponent },
       { path: 'employees', data: { name: 'Employees' }, component: EmployeesComponent },
       { path: 'employee/register', data: { name: 'Register' }, component: EmployeeRegisterComponent },
+      { path: 'employees/:id', data: { name: "Employee" }, component: EmployeeComponent },
       { path: '**', redirectTo: 'error' },
 
     ]),

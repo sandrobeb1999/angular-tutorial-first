@@ -46,6 +46,4 @@ export class EmployeeRegisterComponent implements OnInit {
     window.alert("Employee Registered!");
     this.router.navigate(['employees']);
   }
-
-
 }

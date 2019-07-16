@@ -1,0 +1,26 @@
+<h1>Employee</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{employee.id}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.salary}}</td>
+            <td>{{employee.age}}</td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-primary" (click)="popUp()">Delete Employee</button>
+<div class="popUp" *ngIf="pop" [@openClose]="popUp ? 'open': 'close'">
+    <h3>Are you sure?</h3>
+    <button (click)="deleteEmployee()">Yes</button>
+    <button (click)="hide()">Cancel</button>
+</div>
