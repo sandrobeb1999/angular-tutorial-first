@@ -2,22 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-guard',
-  templateUrl: './guard.component.html',
-  styleUrls: ['./guard.component.scss']
+ selector: 'app-guard',
+ templateUrl: './guard.component.html',
+ styleUrls: ['./guard.component.scss']
 })
 export class GuardComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+ constructor(private authService: AuthService) { }
 
-  ngOnInit() {
-  }
+ ngOnInit() {
+ }
 
-  get access() {
-    return this.authService.isEnabled();
-  }
+ allow() {
+   this.authService.allow();
+ }
+ disallow() {
+   this.authService.disallow();
+ }
 
-  disallow() {
-    this.authService.disallow()
-  }
+ get access() {
+   return this.authService.isEnabled();
+ }
+
 }
